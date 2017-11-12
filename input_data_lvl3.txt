@@ -9,6 +9,3 @@ Pachka#4_1
 Pachka#5_1
 Paletta#2_3
 Korobka#4_2
-Korobka#4_2
-Korobka#4_2
-Paletta#2_3
