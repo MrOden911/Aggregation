@@ -4,27 +4,38 @@ def sort():
     work_list = input_file.read().splitlines()
     input_file.close()
 
-    leng = len(work_list)
-
     output_file = open('output_file.txt', 'w')
 
     false_list = []
     first_list = []
-    for i in range(leng):
-        for j in range(i+1, leng):
-            if work_list[i] == work_list[j]:
-                false_list.append([work_list[i], i, j])
-                first_list.append(j)
-    first_list = list(set(first_list))
-    first_list.reverse()
+
+    # for i in range(leng):
+    #     for j in range(i+1, leng):
+    #         if work_list[i] == work_list[j]:
+    #             false_list.append([work_list[i], i, j])
+    #             first_list.append(j)
+    # first_list = list(set(first_list))
+    # first_list.reverse()
+    # if false_list != []:
+    #     for i in first_list:
+    #         work_list.pop(i)
+    #     output_file.write('WARNING!\nОдинаковые позиции:\n')
+    #     for i in false_list:
+    #         output_file.write('{0} в строках {1} и {2}\n'.format(i[0][:-2], i[1]+1, i[2]+1))
+    #     output_file.write('Удалено строк: {}\n\n\n'.format(len(first_list)))
+
+    li = []
+    for i in work_list:
+        if i not in li:
+            li.append(i)
+        else:
+            false_list.append([i, work_list.index(i), len(li)])
     if false_list != []:
-        for i in first_list:
-            work_list.pop(i)
         output_file.write('WARNING!\nОдинаковые позиции:\n')
         for i in false_list:
             output_file.write('{0} в строках {1} и {2}\n'.format(i[0][:-2], i[1]+1, i[2]+1))
-        output_file.write('Удалено строк: {}\n\n\n'.format(len(first_list)))
-
+        output_file.write('Удалено строк: {}\n\n\n'.format(len(false_list)))
+    work_list = li
     work_dict = {}
     leng = len(work_list)
     for i in range(leng):
@@ -65,4 +76,4 @@ def sort():
     output_file.close()
 
 
-sort()
+
