@@ -4,11 +4,11 @@ from Sorting import sort
 
 
 def gen():
-    max_len = 200
+    max_len = 10000
     gen_list = []
     counter = [0, 0, 0]
     name = ['Pachka#', 'Korobka#', 'Palleta#']
-    quantity = [3, 10]
+    quantity = [18, 88]
     last_type = ''
     last_direct = ''
 
@@ -17,9 +17,9 @@ def gen():
         cur_type = rnd.randint(0, 1)
         cur_direct = rnd.randint(0, 1)
         if cur_type == 0 and last_type == 1 and last_direct == 1:
-            cur_direct == 0
+            cur_direct = 0
         elif cur_type == 1 and last_type == 0 and last_direct == 0:
-            cur_direct == 1
+            cur_direct = 1
         elif last_type == cur_type and last_direct == 1 and cur_direct == 0:
             cur_direct = 1
         if cur_direct == 0:
